@@ -13,7 +13,7 @@ public class Todo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long id;
+    private Long id;
     private String text;
     private Boolean completed;
     private String color;
