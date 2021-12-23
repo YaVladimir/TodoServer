@@ -13,7 +13,7 @@ import java.util.List;
  * Created by yakovenko-va on 23.11.2021
  */
 @Slf4j
-@RestController("/todo")
+@RestController()
 public class TodoController {
     private final TodoService todoService;
 

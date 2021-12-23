@@ -2,6 +2,7 @@ package ru.yakovenko.todo.services;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import ru.yakovenko.todo.exceptions.EntityNotFoundException;
 import ru.yakovenko.todo.model.Todo;
 import ru.yakovenko.todo.repositories.TodoRepository;
 
@@ -27,7 +28,8 @@ public class TodoService {
 
     public Todo getTodo(Long id) {
         log.info("Get todo by id: {}", id);
-        Todo todo = todoRepository.getById(id);
+        Todo todo = todoRepository.findById(id)
+                .orElseThrow(() -> new EntityNotFoundException("Сущность не найдена"));
         log.info("Got todo: {}", todo);
         return todo;
     }
