@@ -39,6 +39,7 @@ public class TodoController {
         return todoService.add(todo);
     }
 
+    @PostMapping(value = "todo/change")
     public Todo changeTodo(@RequestBody Todo todo) {
         return todoService.change(todo);
     }
