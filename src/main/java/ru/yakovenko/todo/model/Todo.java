@@ -12,7 +12,7 @@ import javax.persistence.Id;
 public class Todo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private Long id;
     private String text;
     private Boolean completed;
@@ -27,7 +27,7 @@ public class Todo {
         this.color = color;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
 
@@ -45,6 +45,11 @@ public class Todo {
 
     @Override
     public String toString() {
-        return "";
+        return "Todo{" +
+                "id=" + id +
+                ", text='" + text + '\'' +
+                ", completed=" + completed +
+                ", color='" + color + '\'' +
+                '}';
     }
 }
