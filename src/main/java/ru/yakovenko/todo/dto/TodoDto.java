@@ -1,34 +1,16 @@
-package ru.yakovenko.todo.model;
-
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+package ru.yakovenko.todo.dto;
 
 /**
- * Created by yakovenko-va on 22.11.2021
+ * Created by yakovenko-va on 10.01.2022
  */
-@Entity
-public class Todo {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+public class TodoDto {
     private Long id;
     private String text;
     private Boolean completed;
     private String color;
 
-    public Todo() {
-    }
-
-    public Todo(Long id, String text, Boolean completed, String color) {
+    public TodoDto(Long id, String text, Boolean completed, String color) {
         this.id = id;
-        this.text = text;
-        this.completed = completed;
-        this.color = color;
-    }
-
-    public Todo(String text, Boolean completed, String color) {
         this.text = text;
         this.completed = completed;
         this.color = color;
@@ -38,21 +20,41 @@ public class Todo {
         return id;
     }
 
+    public TodoDto setId(Long id) {
+        this.id = id;
+        return this;
+    }
+
     public String getText() {
         return text;
+    }
+
+    public TodoDto setText(String text) {
+        this.text = text;
+        return this;
     }
 
     public Boolean getCompleted() {
         return completed;
     }
 
+    public TodoDto setCompleted(Boolean completed) {
+        this.completed = completed;
+        return this;
+    }
+
     public String getColor() {
         return color;
     }
 
+    public TodoDto setColor(String color) {
+        this.color = color;
+        return this;
+    }
+
     @Override
     public String toString() {
-        return "Todo{" +
+        return "TodoDto{" +
                 "id=" + id +
                 ", text='" + text + '\'' +
                 ", completed=" + completed +
